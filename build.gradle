@@ -1,30 +1,69 @@
-plugins {
-    id 'java'
-    id 'org.springframework.boot' version '3.2.5'
-    id 'io.spring.dependency-management' version '1.1.4'
-}
+[versions]
 
-group = 'com.datadoghq.workshops'
-version = '0.0.1-SNAPSHOT'
+springboot = '3.5.3'
 
-java {
-    sourceCompatibility = '21'
-}
+springmodulith = '1.4.1'
 
-repositories {
-    mavenCentral()
-}
+glassfish_jaxb = '4.0.5'
 
-dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-    implementation 'net.logstash.logback:logstash-logback-encoder:7.2'
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    compileOnly 'org.projectlombok:lombok:1.18.32'
-    annotationProcessor 'org.projectlombok:lombok:1.18.32'
-}
+hibernate_modelgen = '6.6.18.Final'
 
-tasks.named('test') {
-  useJUnitPlatform()
-}
+jakarta_ee_api = '10.0.0'
+
+jsonschema2pojo = '1.2.2'
+
+datasource_micrometer = '1.1.2'
+
+ 
+
+[libraries]
+
+org-spring-boot-bom = { module = 'org.springframework.boot:spring-boot-dependencies', version.ref = 'springboot' }
+
+spring-boot-gradle-plugin = { module = 'org.springframework.boot:spring-boot-gradle-plugin', version.ref = 'springboot' }
+
+spring-boot-starter = { module = 'org.springframework.boot:spring-boot-starter' }
+
+spring-boot-starter-validation = { module = 'org.springframework.boot:spring-boot-starter-validation' }
+
+org-springframework-modulith-events-kafka = { module = 'org.springframework.modulith:spring-modulith-events-kafka' }
+
+spring-boot-devtools = { module = "org.springframework.boot:spring-boot-devtools", version.ref = "springboot" }
+
+ 
+
+org-springframework-modulith-bom = { module = 'org.springframework.modulith:spring-modulith-bom', version.ref = 'springmodulith' }
+
+org-springdoc-springdoc-openapi-starter-webmvc-ui = 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.7.0'
+
+ 
+
+org-glassfish-jaxb-jaxb-xjc = { module = 'org.glassfish.jaxb:jaxb-xjc', version.ref = 'glassfish_jaxb' }
+
+org-glassfish-jaxb-jaxb-runtime = { module = 'org.glassfish.jaxb:jaxb-runtime', version.ref = 'glassfish_jaxb' }
+
+jackson-core = { group = "com.fasterxml.jackson.core", name = "jackson-core" }
+
+jackson-databind = { group = "com.fasterxml.jackson.core", name = "jackson-databind" }
+
+jackson-annotations = { group = "com.fasterxml.jackson.core", name = "jackson-annotations" }
+
+ 
+
+jakarta-xml-bind-api = { module = 'jakarta.xml.bind:jakarta.xml.bind-api' }
+
+jakarta-ee-api = { module = 'jakarta.platform:jakarta.jakartaee-api', version.ref = 'jakarta_ee_api' }
+
+hibernate-jpa-modelgen = { module = 'org.hibernate:hibernate-jpamodelgen', version.ref = 'hibernate_modelgen' }
+
+datasource-micrometer = { module = 'net.ttddyy.observation:datasource-micrometer-spring-boot', version.ref = 'datasource_micrometer' }
+
+ 
+
+[plugins]
+
+lombok = 'io.freefair.lombok:8.11'
+
+flyway = 'org.flywaydb.flyway:11.7.2'
+
+jsonschema2pojo = { id = "org.jsonschema2pojo", version.ref = "jsonschema2pojo" }
